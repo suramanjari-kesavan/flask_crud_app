@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Details</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Student Details</h1>
+        <p><strong>ID:</strong> {{ student.student_id }}</p>
+        <p><strong>First Name:</strong> {{ student.first_name }}</p>
+        <p><strong>Last Name:</strong> {{ student.last_name }}</p>
+        <p><strong>Date of Birth:</strong> {{ student.dob }}</p>
+        <p><strong>Amount Due:</strong> {{ student.amount_due }}</p>
+        <a href="/students">Back to Students List</a>
+        <a href="/student/{{ student.student_id }}/edit">Edit</a>
+        <form action="/student/{{ student.student_id }}" method="post" style="display:inline;">
+            <input type="hidden" name="_method" value="DELETE">
+            <button type="submit">Delete</button>
+        </form>
+        <a href="/">Back to Home</a>
+    </div>
+</body>
+</html>
